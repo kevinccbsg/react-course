@@ -20,12 +20,16 @@ class App extends Component {
   render () {
     return (
       <div>
-        <input type="text" onChange={this.update} />
+        <Widget update={this.update} />
         <h1> Hello world {this.props.txt} - {this.state.txt}</h1>
         <strong>stronger!! {this.props.cat}</strong>
       </div>
     );
   }
+}
+
+const Widget = (props) => {
+  return <input type="text" onChange={props.update} />;
 }
 
 export default App;
