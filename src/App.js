@@ -5,31 +5,22 @@ const data = '!!!';
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      txt: 'this is the state txt'
-    };
-    this.update = this.update.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
-  update(e) {
-    this.setState({
-      txt: e.target.value
-    });
+  handleClick() {
+    alert('clicked');
   }
 
   render () {
     return (
-      <div>
-        <Widget update={this.update} />
-        <h1> Hello world {this.props.txt} - {this.state.txt}</h1>
-        <strong>stronger!! {this.props.cat}</strong>
-      </div>
+      <Button click={this.handleClick}>React</Button>
     );
   }
 }
 
-const Widget = (props) => {
-  return <input type="text" onChange={props.update} />;
+const Button = (props) => {
+  return <button onClick={props.click}>{props.children}</button>;
 }
 
 export default App;
