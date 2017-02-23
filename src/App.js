@@ -3,24 +3,29 @@ import React, { Component, PropTypes } from 'react';
 const data = '!!!';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      txt: 'this is the state txt'
+    };
+    this.update = this.update.bind(this);
+  }
+
+  update(e) {
+    this.setState({
+      txt: e.target.value
+    });
+  }
+
   render () {
     return (
       <div>
-        <h1> Hello world {this.props.txt}</h1>
+        <input type="text" onChange={this.update} />
+        <h1> Hello world {this.props.txt} - {this.state.txt}</h1>
         <strong>stronger!! {this.props.cat}</strong>
       </div>
     );
   }
 }
-
-App.propTypes = {
-  txt: React.PropTypes.string,
-  cat: React.PropTypes.number.isRequired
-};
-
-App.defaultProps = {
-  txt: "this default text",
-  cat: 1
-};
 
 export default App;
