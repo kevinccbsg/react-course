@@ -17,12 +17,20 @@ class App extends Component {
   handleClick() {
     alert('clicked');
   }
+
+  componentWillMount () {
+    this.setState({
+      a: 'wat'
+    });
+  }
+
   render () {
     return (
       <div>
         <Input 
           ref={ component => this.a = component }
           update={this.update}
+          valueComponent={this.state.a}
         /> {this.state.a}
         <input 
           ref={ node => this.b = node }
@@ -36,7 +44,7 @@ class App extends Component {
 
 class Input extends Component {
   render() {
-    return <input ref="input" type="text" onChange={this.props.update} />;
+    return <input value={this.props.valueComponent} ref="input" type="text" onChange={this.props.update} />;
   }
 }
 
