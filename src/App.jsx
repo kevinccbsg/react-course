@@ -45,7 +45,7 @@ class Input extends Component {
   }
 }
 
-const Loading = () => <p>Loading.....</p>;
+const Loading = () => <p>Load...</p>;
 
 const Button = (props) => {
   return <button onClick={props.click}>{props.children}</button>;
